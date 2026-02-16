@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kidney Disease Prediction</title>
+</head>
+<body>
+    <h2>Kidney Disease Prediction</h2>
+
+    <form method="POST">
+        <h3>Numeric Inputs:</h3>
+        {% for col in ['age','bp','sg','al','su','bgr','bu','sc','sod','pot','hemo','pcv','wc','rc'] %}
+            {{ col }}: <input type="number" step="any" name="{{ col }}" required placeholder="Enter {{ col }}"><br>
+        {% endfor %}
+
+        <h3>Categorical Inputs:</h3>
+        {% for col in ['rbc','pc','pcc','ba','htn','dm','cad','appet','pe','ane'] %}
+            {{ col }}: <input type="text" name="{{ col }}" required placeholder="Enter {{ col }}"><br>
+        {% endfor %}
+
+        <br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
